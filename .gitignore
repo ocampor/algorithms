@@ -31,5 +31,10 @@
 *.out
 *.app
 
-/cmake-build-debug/
 /.idea/
+CMakeCache.txt
+/MakeFiles/
+Makefile
+algorithms
+cmake_install.cmake
+/CMakeFiles/
