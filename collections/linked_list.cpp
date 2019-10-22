@@ -38,8 +38,7 @@ template<typename Item>
 Item LinkedList<Item>::pop() {
     Node *tmp = last;
     if (isEmpty()) {
-        std::cout << "The list is empty." << std::endl;
-        return NULL;
+        throw std::out_of_range("The list is empty.");
     } else if (N == 1) {
         first = nullptr;
         last = nullptr;
@@ -55,7 +54,7 @@ Item LinkedList<Item>::pop() {
 template<typename Item>
 std::string LinkedList<Item>::toString() {
     std::string concat{};
-    for (Node *current = first; current != NULL; current = current->next) {
+    for (Node *current = first; current != nullptr; current = current->next) {
         concat += std::to_string(current->item) + ",";
     }
 
