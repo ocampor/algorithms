@@ -2,7 +2,6 @@
 
 #import "../third_party/catch.h"
 #import "../collections/linked_list.h"
-#import <iostream>
 
 TEST_CASE("linked list can be sized and append items", "[list]") {
     LinkedList<int> list = LinkedList<int>();
@@ -13,25 +12,30 @@ TEST_CASE("linked list can be sized and append items", "[list]") {
     REQUIRE(!list.isEmpty());
 
     SECTION("Removing item changes size") {
-        list.pop();
+        list.removeLast();
         REQUIRE(list.size() == 1);
     }
 
     SECTION("Removing item returns the value") {
-        int value = list.pop();
+        int value = list.removeLast();
         REQUIRE(value == 2);
     }
 
+    SECTION("Removing first item returns the first value") {
+        int value = list.removeFirst();
+        REQUIRE(value == 1);
+    }
+
     SECTION("isEmpty() returns true") {
-        list.pop();
-        list.pop();
+        list.removeLast();
+        list.removeLast();
         REQUIRE(list.isEmpty());
     }
 
     SECTION("Removing item from empty list throws std::out_of_range") {
-        list.pop();
-        list.pop();
-        REQUIRE_THROWS_AS(list.pop(), std::out_of_range);
+        list.removeLast();
+        list.removeLast();
+        REQUIRE_THROWS_AS(list.removeLast(), std::out_of_range);
         REQUIRE(list.size() == 0);
     }
 }

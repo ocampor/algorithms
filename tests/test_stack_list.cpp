@@ -13,7 +13,7 @@ TEST_CASE("stack can be sized and append items", "[stack]") {
         REQUIRE(value == 2);
     }
 
-    SECTION("pop removes the last value") {
+    SECTION("removeLast removes the last value") {
         int value = stack.pop();
         REQUIRE(stack.size() == 1);
         REQUIRE(value == 2);

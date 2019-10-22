@@ -22,9 +22,11 @@ namespace collections {
 
         void append(Item item);
 
-        Item pop();
+        Item removeLast();
 
         std::string toString();
+
+        Item removeFirst();
 
     private:
         Node *first;

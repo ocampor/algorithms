@@ -8,7 +8,7 @@ int main() {
     list.append(2);
     list.append(3);
     list.append(4);
-    list.pop();
+    list.removeLast();
 
     std::cout << list.toString() << "size:" << list.size() << std::endl;
     return 0;

@@ -35,7 +35,7 @@ void LinkedList<Item>::append(Item item) {
 }
 
 template<typename Item>
-Item LinkedList<Item>::pop() {
+Item LinkedList<Item>::removeLast() {
     Node *tmp = last;
     if (isEmpty()) {
         throw std::out_of_range("The list is empty.");
@@ -45,6 +45,23 @@ Item LinkedList<Item>::pop() {
     } else {
         last->previous->next = nullptr;
         last = last->previous;
+    }
+
+    N--;
+    return tmp->item;
+}
+
+//TODO: Refactor this and removeLast to share the same code
+template<typename Item>
+Item LinkedList<Item>::removeFirst() {
+    Node *tmp = first;
+    if (isEmpty()) {
+        throw std::out_of_range("The list is empty.");
+    } else if (N == 1) {
+        first = nullptr;
+        last = nullptr;
+    } else {
+        first = tmp->next;
     }
 
     N--;

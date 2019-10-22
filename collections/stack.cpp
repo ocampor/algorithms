@@ -11,7 +11,7 @@ void Stack<Item>::push(Item item) {
 
 template<typename Item>
 Item Stack<Item>::pop() {
-    return list.pop();
+    return list.removeLast();
 }
 
 template<typename Item>
