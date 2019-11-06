@@ -28,6 +28,10 @@ namespace collections {
 
         Item removeFirst();
 
+        Item getFirst();
+
+        Item getLast();
+
     private:
         Node *first;
         Node *last;

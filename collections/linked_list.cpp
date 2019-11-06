@@ -51,6 +51,22 @@ Item LinkedList<Item>::removeLast() {
     return tmp->item;
 }
 
+template<typename Item>
+Item LinkedList<Item>::getFirst() {
+    if (isEmpty()) {
+        throw std::out_of_range("The list is empty");
+    }
+    return first->item;
+}
+
+template<typename Item>
+Item LinkedList<Item>::getLast() {
+    if (isEmpty()) {
+        throw std::out_of_range("The list is empty");
+    }
+    return last->item;
+}
+
 //TODO: Refactor this and removeLast to share the same code
 template<typename Item>
 Item LinkedList<Item>::removeFirst() {

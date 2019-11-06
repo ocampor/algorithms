@@ -9,14 +9,19 @@ TEST_CASE("stack can be sized and append items", "[stack]") {
     REQUIRE(stack.size() == 2);
 
     SECTION("Removing item returns the value") {
-        int value = stack.pop();
+        int value{stack.pop()};
         REQUIRE(value == 2);
     }
 
     SECTION("removeLast removes the last value") {
-        int value = stack.pop();
+        int value{stack.pop()};
         REQUIRE(stack.size() == 1);
         REQUIRE(value == 2);
+    }
+
+    SECTION("peek returns the next value in the stack but does not remove it") {
+        int value{stack.peek()};
+        REQUIRE(stack.peek() == 2);
     }
 
     SECTION("Removing item from empty list throws std::out_of_range") {

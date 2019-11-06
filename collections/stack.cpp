@@ -15,6 +15,11 @@ Item Stack<Item>::pop() {
 }
 
 template<typename Item>
+Item Stack<Item>::peek() {
+    return list.getLast();
+}
+
+template<typename Item>
 bool Stack<Item>::isEmpty() {
     return list.isEmpty();
 }

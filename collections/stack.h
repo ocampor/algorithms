@@ -18,6 +18,8 @@ public:
 
     Item pop();
 
+    Item peek();
+
     bool isEmpty();
 
     int size();
