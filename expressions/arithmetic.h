@@ -7,6 +7,6 @@
 
 #import <string>
 
-float evaluate(std::string expression);
+float evaluate(const std::string &expression);
 
 #endif //ALGORITHMS_ARITHMETIC_H
