@@ -1,9 +1,10 @@
 //
-// Created by Ricardo Ocampo on 11/6/19.
+// Algorithms, Fourth Edition
+// 1.3.51 Expression evaluation with precedence order. Extend Evaluate (page 129) to handle arithmetic expressions
+// that are not fully parenthesized, using the standard precedence order for the operators +, -. *. and /.
 //
 
 #include "arithmetic.h"
-#include <set>
 
 using namespace std;
 using namespace collections;
