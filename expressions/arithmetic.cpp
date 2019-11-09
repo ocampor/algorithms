@@ -3,8 +3,6 @@
 //
 
 #include "arithmetic.h"
-#include "../collections/stack.h"
-#include <iostream>
 #include <set>
 
 using namespace std;
@@ -23,8 +21,18 @@ float operation(char op, float a, float b) {
         case '*':
             return a * b;
         case '/':
-            cout << "The division is" << a / b << endl;
             return a / b;
+        default:
+            throw runtime_error("Operator not recognized");
+    }
+}
+
+float finalizeOperations(Stack<float> &literals, Stack<char> &operators) {
+    while (!operators.isEmpty()) {
+        char op{operators.pop()};
+        float b{literals.pop()};
+        float a{literals.pop()};
+        literals.push(operation(op, a, b));
     }
 }
 
@@ -42,15 +50,12 @@ float evaluate(const std::string &expression) {
             }
         } else if (c == '*' || c == '/' || c == '+' || c == '-') {
             operators.push(c);
+        } else if (c == ')') {
+            finalizeOperations(literals, operators);
         }
     }
 
-    while (!operators.isEmpty()) {
-        char op{operators.pop()};
-        float b{literals.pop()};
-        float a{literals.pop()};
-        literals.push(operation(op, a, b));
-    }
+    finalizeOperations(literals, operators);
 
     return literals.pop();
 }

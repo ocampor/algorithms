@@ -6,6 +6,7 @@
 #define ALGORITHMS_ARITHMETIC_H
 
 #import <string>
+#include "../collections/stack.h"
 
 float evaluate(const std::string &expression);
 
